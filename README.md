@@ -37,10 +37,8 @@ For this app, you will have at least three routes which will do the following:
 
 3. Make a simple Flask application with the following items:
 
-   - Make your app into a function called `create_app`
    - Name the Flask application `APP`
    - Make your _base_ route and return `'This is the base route.'`
-   - At the end of your `create_app` function, return the application variable
 
 
 4. Now, add a conditional at the bottom of your script which will allow you to start up the Flask app when the script is
@@ -52,8 +50,9 @@ run.
 
 ## Coding: Part II - Create the Database
 
-1. In the same application file, make some lines before the `create_app` function to create room for your SQLAlchemy
-model.  In class, we put our ORM model into another file but, for simplicity's sake, we can keep them in the same file.
+1. In the same application file, make some lines before the instantiation of the Flask app to create room for your
+SQLAlchemy model.  In class, we put our ORM model into another file but, for simplicity's sake, we can keep them in the
+same file.
 
 
 2. After instantiating the database variable from SQLAlchemy, create a table called `Record` which will inherit the
@@ -66,11 +65,11 @@ model.  In class, we put our ORM model into another file but, for simplicity's s
    - name (String)
    - age (Small Integer)
 
-   
+
 4. Lastly, add a `__repr__` method in this class which will emulate the following string representation of your classes:
 
    - `'[Id: 0 | Name: James | Predicted Age: 27]'`
-   
+
 
 #### ***Back to the application!***
 
@@ -179,7 +178,7 @@ us the name, predicted age, and another feature we won't worry about.
 
    - `BASE_URL` -> the URL of the Agify.io API with query param *without* the name value
    - `name`     -> extract the query param called `name` out of the URL (`/check_name?name=<name>`)
-   - `data`     -> the literal representation of the text received from using the `request.get()` method (aka: what we 
+   - `data`     -> the literal representation of the text received from using the `request.get()` method (aka: what we
                    did in the Flask shell)
 
 
@@ -187,7 +186,7 @@ us the name, predicted age, and another feature we won't worry about.
 at `-1`.  This will be tough since we didn't go over this before (this will not be on Sprint Challenge).  You can make a
 query to the database by using the `DB.session.query()` method and passing in SQLAlchemy's version of the `max()`
 function to grab the max `Record.id` and chaining the `.first()` method after rather than `.all()`.  Then, isolate the
-value using tuple indexing (similar to list indexing). 
+value using tuple indexing (similar to list indexing).
 
    - _We will start at `-1` since we will be adding 1 to it when making our Record instance_
 
